@@ -2,6 +2,12 @@
 
 A simple event emitter hooks using [eventmit](https://github.com/azu/eventmit)
 
+## install
+
+```sh
+$ npm install use-eventmit --save
+```
+
 ## usage
 
 ```tsx
