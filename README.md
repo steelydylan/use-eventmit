@@ -11,7 +11,7 @@ $ npm install use-eventmit --save
 ## usage
 
 ```tsx
-import * as React from 'react';
+import * as React from 'react'
 import { useEmitter, useSubscriber } from 'use-eventmit'
 import { render } from 'react-dom'
 
@@ -24,16 +24,16 @@ const Child = () => {
 }
 
 const Parent = () => {
-  const [emit, Provider] = useEmitter<string>();
+  const [emit, Provider] = useEmitter<string>()
   
   return (<Provider>
     <button onClick={() => {
-      emit('hoge');
+      emit('hoge')
     }}>Emit!!</button>
     <Child />
   </Provider>)
 }
 
 render(<Parent />
-, document.getElementById('main'));
+, document.getElementById('main'))
 ```
