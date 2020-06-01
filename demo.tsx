@@ -3,10 +3,11 @@ import { useEmitter, useSubscriber } from './src'
 import { render } from 'react-dom'
 
 const Child = () => {
+  const [count, setCount] = React.useState(0)
   useSubscriber<string>((event) => {
-    console.log(event)
+    setCount(count => count + 1)
   })
-  return (<div>child</div>)
+  return (<div>child {count} </div>)
 }
 
 const Parent = () => {
@@ -15,7 +16,7 @@ const Parent = () => {
   return (<Provider>
     <button onClick={() => {
       emit('hoge');
-    }}></button>
+    }}>Emit!!</button>
     <Child />
   </Provider>)
 }
