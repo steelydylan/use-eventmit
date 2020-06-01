@@ -12,7 +12,7 @@ $ npm install use-eventmit --save
 
 ```tsx
 import * as React from 'react';
-import { useEmitter, useSubscriber } from './src'
+import { useEmitter, useSubscriber } from 'use-eventmit'
 import { render } from 'react-dom'
 
 const Child = () => {
