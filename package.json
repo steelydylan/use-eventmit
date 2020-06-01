@@ -2,8 +2,8 @@
   "name": "use-eventmit",
   "version": "1.0.0",
   "description": "",
-  "main": "./lib/index.js",
-  "types": "./lib/index.d.ts",
+  "main": "./lib/src/index.js",
+  "types": "./lib/src/index.d.ts",
   "scripts": {
     "dev": "webpack-dev-server --config webpack.config.js --host 0.0.0.0 --port 3031",
     "test": "echo \"Error: no test specified\" && exit 1",
