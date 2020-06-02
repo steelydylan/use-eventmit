@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { eventmit, EventmitHandler } from 'eventmit'
 
-const { useRef, useContext, useEffect } = React;
+const { useRef, useContext, useEffect, useMemo } = React;
 
 const EmitterContext = React.createContext(eventmit())
 const Provider = EmitterContext.Provider
@@ -16,7 +16,7 @@ const createEmitterProvider = (subscription: ReturnType<typeof eventmit>) => ({
 
 export const useEmitter = <T extends unknown>() => {
   const emitter = useRef(eventmit<T>())
-  const Provider = createEmitterProvider(emitter.current)
+  const Provider = useMemo(() => createEmitterProvider(emitter.current), [])
   return [emitter.current.emit, Provider] as const
 }
 
