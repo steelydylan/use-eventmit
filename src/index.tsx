@@ -11,19 +11,16 @@ const createEmitterProvider = (subscription: ReturnType<typeof eventmit>) => ({
 }: {
   children: React.ReactNode
 }) => {
-  return React.createElement(Provider, {
-    value: subscription,
-    children,
-  })
+  return <Provider value={subscription}>{children}</Provider>
 }
 
-export const useEmitter = <T>() => {
+export const useEmitter = <T extends unknown>() => {
   const emitter = useRef(eventmit<T>())
   const Provider = createEmitterProvider(emitter.current)
   return [emitter.current.emit, Provider] as const
 }
 
-export const useSubscriber = <T>(fn: EventmitHandler<T>) => {
+export const useSubscriber = <T extends unknown>(fn: EventmitHandler<T>) => {
   const ctx = useContext(EmitterContext)
   useEffect(() => {
     ctx.on(fn)
